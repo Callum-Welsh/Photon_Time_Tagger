@@ -1,0 +1,152 @@
+# Copyright (C) 1991-2005 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions
+# and other software and tools, and its AMPP partner logic
+# functions, and any output files any of the foregoing
+# (including device programming or simulation files), and any
+# associated documentation or information are expressly subject
+# to the terms and conditions of the Altera Program License
+# Subscription Agreement, Altera MegaCore Function License
+# Agreement, or other applicable license agreement, including,
+# without limitation, that your use is for the sole purpose of
+# programming logic devices manufactured by Altera and sold by
+# Altera or its authorized distributors.  Please refer to the
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		Xylo-EM_FlashyD_RevH_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name LAST_QUARTUS_VERSION 8.1
+
+# Pin & Location Assignments
+# ==========================
+set_location_assignment PIN_17 -to FX2_CLK
+set_location_assignment PIN_4  -to FX2_FD[0]
+set_location_assignment PIN_7  -to FX2_FD[1]
+set_location_assignment PIN_8  -to FX2_FD[2]
+set_location_assignment PIN_9  -to FX2_FD[3]
+set_location_assignment PIN_43 -to FX2_FD[4]
+set_location_assignment PIN_42 -to FX2_FD[5]
+set_location_assignment PIN_41 -to FX2_FD[6]
+set_location_assignment PIN_40 -to FX2_FD[7]
+set_location_assignment PIN_18 -to FX2_flags[0]
+set_location_assignment PIN_21 -to FX2_flags[1]
+set_location_assignment PIN_22 -to FX2_flags[2]
+set_location_assignment PIN_32 -to FX2_PA_2
+set_location_assignment PIN_31 -to FX2_PA_3
+set_location_assignment PIN_30 -to FX2_PA_4
+set_location_assignment PIN_28 -to FX2_PA_5
+set_location_assignment PIN_27 -to FX2_PA_6
+set_location_assignment PIN_26 -to FX2_PA_7
+set_location_assignment PIN_24 -to FX2_SLRD
+set_location_assignment PIN_25 -to FX2_SLWR
+
+set_location_assignment PIN_88 -to clk_ADC
+set_location_assignment PIN_89 -to clk_FC
+set_location_assignment PIN_97 -to ADC_DACCTRL
+
+set_location_assignment PIN_69 -to ADC_dataA[7]
+set_location_assignment PIN_70 -to ADC_dataA[6]
+set_location_assignment PIN_74 -to ADC_dataA[5]
+set_location_assignment PIN_75 -to ADC_dataA[4]
+set_location_assignment PIN_73 -to ADC_dataA[3]
+set_location_assignment PIN_79 -to ADC_dataA[2]
+set_location_assignment PIN_92 -to ADC_dataA[1]
+set_location_assignment PIN_93 -to ADC_dataA[0]
+
+set_location_assignment PIN_100 -to ADC_dataB[7]
+set_location_assignment PIN_104 -to ADC_dataB[6]
+set_location_assignment PIN_101 -to ADC_dataB[5]
+set_location_assignment PIN_112 -to ADC_dataB[4]
+set_location_assignment PIN_113 -to ADC_dataB[3]
+set_location_assignment PIN_114 -to ADC_dataB[2]
+set_location_assignment PIN_133 -to ADC_dataB[1]
+set_location_assignment PIN_132 -to ADC_dataB[0]
+
+#set_location_assignment PIN_72 -to LED
+
+# Timing Assignments
+# ==================
+set_global_assignment -name TSU_REQUIREMENT "5 ns"
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name TOP_LEVEL_ENTITY FlashyMini
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE EP2C5T144C8
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_global_assignment -name RESERVE_ASDO_AFTER_CONFIGURATION "AS INPUT TRI-STATED"
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+
+# Assembler Assignments
+# =====================
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+
+# Simulator Assignments
+# =====================
+
+# LogicLock Region Assignments
+# ============================
+
+# ----------------
+# start CLOCK(clk)
+
+# Timing Assignments
+# ==================
+set_global_assignment -name FMAX_REQUIREMENT "24 MHz" -section_id clk
+
+# end CLOCK(clk)
+# --------------
+
+# --------------------
+# start CLOCK(clk_ADC)
+
+# Timing Assignments
+# ==================
+set_global_assignment -name FMAX_REQUIREMENT "100 MHz" -section_id clk_ADC
+
+# end CLOCK(clk_ADC)
+# ------------------
+
+# -------------------
+# start CLOCK(clk_FC)
+
+# Timing Assignments
+# ==================
+set_global_assignment -name FMAX_REQUIREMENT "100 MHz" -section_id clk_FC
+
+# end CLOCK(clk_FC)
+# -----------------
+
+# --------------------
+# start ENTITY(flashy)
+
+# Timing Assignments
+# ==================
+
+# end ENTITY(flashy)
+# ------------------
+
+set_instance_assignment -name CLOCK_SETTINGS clk -to FX2_CLK
+set_instance_assignment -name CLOCK_SETTINGS clk_ADC -to clk_ADC
+set_instance_assignment -name CLOCK_SETTINGS clk_FC -to clk_FC
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 2147039 -section_id Top
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_instance_assignment -name PARTITION_HIERARCHY no_file_for_top_partition -to | -section_id Top
+set_global_assignment -name VERILOG_FILE FlashyMini.v
+set_global_assignment -name VERILOG_FILE RAM_8x512_reg_Altera.v

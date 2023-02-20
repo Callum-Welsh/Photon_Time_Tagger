@@ -1,0 +1,56 @@
+# Copyright (C) 1991-2005 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions
+# and other software and tools, and its AMPP partner logic
+# functions, and any output files any of the foregoing
+# (including device programming or simulation files), and any
+# associated documentation or information are expressly subject
+# to the terms and conditions of the Altera Program License
+# Subscription Agreement, Altera MegaCore Function License
+# Agreement, or other applicable license agreement, including,
+# without limitation, that your use is for the sole purpose of
+# programming logic devices manufactured by Altera and sold by
+# Altera or its authorized distributors.  Please refer to the
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		Xylo_PongVGA_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "5.1 SP0.15"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:45:33  MARCH 07, 2006"
+set_global_assignment -name LAST_QUARTUS_VERSION 6.0
+set_global_assignment -name VERILOG_FILE hvsync_generator.v
+set_global_assignment -name VERILOG_FILE pong.v
+
+# Pin & Location Assignments
+# ==========================
+set_location_assignment PIN_17 -to clk
+set_location_assignment PIN_133 -to vga_h_sync
+set_location_assignment PIN_132 -to vga_v_sync
+set_location_assignment PIN_112 -to vga_R
+set_location_assignment PIN_113 -to vga_G
+set_location_assignment PIN_114 -to vga_B
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name TOP_LEVEL_ENTITY pong
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE EP2C5T144C8
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+
+# Assembler Assignments
+# =====================
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"

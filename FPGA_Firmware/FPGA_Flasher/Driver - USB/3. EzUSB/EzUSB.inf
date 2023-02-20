@@ -1,0 +1,49 @@
+[Version]
+Signature = "$CHICAGO$"
+Class = USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider = "KNJN LLC"
+
+[Manufacturer]
+"KNJN LLC" = DeviceList
+
+[DeviceList]
+"EzUSB driver - FPGA board PID=8613 - KNJN LLC fpga4fun.com" = Install.EzUSB, USB\VID_04B4&PID_8613
+"EzUSB driver - FPGA board PID=8614 - KNJN LLC fpga4fun.com" = Install.EzUSB, USB\VID_04B4&PID_8614
+"EzUSB driver - FPGA board PID=8615 - KNJN LLC fpga4fun.com" = Install.EzUSB, USB\VID_04B4&PID_8615
+"EzUSB driver - FPGA board PID=8616 - KNJN LLC fpga4fun.com" = Install.EzUSB, USB\VID_04B4&PID_8616
+"EzUSB driver - FPGA board PID=8617 - KNJN LLC fpga4fun.com" = Install.EzUSB, USB\VID_04B4&PID_8617
+"EzUSB driver - FPGA board PID=8618 - KNJN LLC fpga4fun.com" = Install.EzUSB, USB\VID_04B4&PID_8618
+"EzUSB driver - FPGA board PID=8619 - KNJN LLC fpga4fun.com" = Install.EzUSB, USB\VID_04B4&PID_8619
+
+[Install.EzUSB]
+CopyFiles = FilesToCopy
+AddReg = Install.EzUSB.AddReg
+
+[Install.EzUSB.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,EzUSB.sys
+
+[Install.EzUSB.NT]
+CopyFiles = FilesToCopy.EzUSB
+
+[Install.EzUSB.NT.Services]
+AddService = EzUSB, 0x00000002, ServiceInstall.EzUSB
+
+[ServiceInstall.EzUSB]
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\EzUSB.sys
+
+[SourceDisksFiles]
+EzUSB.sys = 1
+
+[SourceDisksNames]
+1="USB driver files",,,
+
+[FilesToCopy.EzUSB]
+EzUSB.sys
+
+[DestinationDirs]
+DefaultDestDir = 10,System32\Drivers

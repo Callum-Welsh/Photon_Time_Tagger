@@ -1,0 +1,62 @@
+# Copyright (C) 1991-2005 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic       
+# functions, and any output files any of the foregoing           
+# (including device programming or simulation files), and any    
+# associated documentation or information are expressly subject  
+# to the terms and conditions of the Altera Program License      
+# Subscription Agreement, Altera MegaCore Function License       
+# Agreement, or other applicable license agreement, including,   
+# without limitation, that your use is for the sole purpose of   
+# programming logic devices manufactured by Altera and sold by   
+# Altera or its authorized distributors.  Please refer to the    
+# applicable agreement for further details.
+
+# Project-Wide Assignments
+# ========================
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 5.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:13:07  JUNE 07, 2005"
+set_global_assignment -name LAST_QUARTUS_VERSION 6.1
+set_global_assignment -name VERILOG_FILE FX2_bidir.v
+
+# Pin & Location Assignments
+# ==========================
+set_location_assignment PIN_17 -to FX2_CLK
+set_location_assignment PIN_4 -to FX2_FD[0]
+set_location_assignment PIN_7 -to FX2_FD[1]
+set_location_assignment PIN_8 -to FX2_FD[2]
+set_location_assignment PIN_9 -to FX2_FD[3]
+set_location_assignment PIN_43 -to FX2_FD[4]
+set_location_assignment PIN_42 -to FX2_FD[5]
+set_location_assignment PIN_41 -to FX2_FD[6]
+set_location_assignment PIN_40 -to FX2_FD[7]
+set_location_assignment PIN_18 -to FX2_flags[0]
+set_location_assignment PIN_21 -to FX2_flags[1]
+set_location_assignment PIN_22 -to FX2_flags[2]
+set_location_assignment PIN_32 -to FX2_PA_2
+set_location_assignment PIN_31 -to FX2_PA_3
+set_location_assignment PIN_30 -to FX2_PA_4
+set_location_assignment PIN_28 -to FX2_PA_5
+set_location_assignment PIN_27 -to FX2_PA_6
+set_location_assignment PIN_26 -to FX2_PA_7
+set_location_assignment PIN_24 -to FX2_SLRD
+set_location_assignment PIN_25 -to FX2_SLWR
+
+set_location_assignment PIN_72 -to LED[0]
+set_location_assignment PIN_71 -to LED[1]
+
+# Analysis & Synthesis Assignments
+# ================================
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name TOP_LEVEL_ENTITY FX2_bidir
+set_global_assignment -name AUTO_ENABLE_SMART_COMPILE on
+
+# Fitter Assignments
+# ==================
+set_global_assignment -name DEVICE EP2C5T144C8
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+
+# Assembler Assignments
+# =====================
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"

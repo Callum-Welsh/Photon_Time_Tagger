@@ -1,0 +1,57 @@
+[Version]
+Signature = "$CHICAGO$"
+Class = USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider = "KNJN LLC"
+
+[Manufacturer]
+"KNJN LLC" = DeviceList,NTamd64
+
+[DeviceList]
+
+[DeviceList.NTamd64]
+"CyUSB driver - FPGA board PID=8613 - KNJN LLC fpga4fun.com" = Install.CyUSB, USB\VID_04B4&PID_8613
+"CyUSB driver - FPGA board PID=8614 - KNJN LLC fpga4fun.com" = Install.CyUSB, USB\VID_04B4&PID_8614
+"CyUSB driver - FPGA board PID=8615 - KNJN LLC fpga4fun.com" = Install.CyUSB, USB\VID_04B4&PID_8615
+"CyUSB driver - FPGA board PID=8616 - KNJN LLC fpga4fun.com" = Install.CyUSB, USB\VID_04B4&PID_8616
+"CyUSB driver - FPGA board PID=8617 - KNJN LLC fpga4fun.com" = Install.CyUSB, USB\VID_04B4&PID_8617
+"CyUSB driver - FPGA board PID=8618 - KNJN LLC fpga4fun.com" = Install.CyUSB, USB\VID_04B4&PID_8618
+"CyUSB driver - FPGA board PID=8619 - KNJN LLC fpga4fun.com" = Install.CyUSB, USB\VID_04B4&PID_8619
+
+[Install.CyUSB]
+CopyFiles = FilesToCopy
+AddReg = Install.CyUSB.AddReg
+
+[Install.CyUSB.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,CyUSB.sys
+
+[Install.CyUSB.NT]
+CopyFiles = FilesToCopy.CyUSB
+
+[Install.CyUSB.NT.HW]
+AddReg=Install.CyUSB.AddReg.Guid
+
+[Install.CyUSB.AddReg.Guid]
+HKR,,DriverGUID,,"{0EFA2C93-0C7B-454F-9403-D638F6C37E65}"
+
+[Install.CyUSB.NT.Services]
+AddService = CyUSB, 0x00000002, ServiceInstall.CyUSB
+
+[ServiceInstall.CyUSB]
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %12%\CyUSB.sys
+
+[SourceDisksFiles]
+CyUSB.sys = 1
+
+[SourceDisksNames]
+1="USB driver files",,,
+
+[FilesToCopy.CyUSB]
+CyUSB.sys
+
+[DestinationDirs]
+DefaultDestDir = 10,System32\Drivers
