@@ -502,9 +502,14 @@ void correlate (unsigned char * data, int length, __int64 *stats)
 {
     int i;
     int dlength = length%4;
+	bool flag0 = false;
+	bool flag1 = false;
+	bool flag2 = false;
+	bool flag3 = false;
     
     for (i=0; i<length; i+=4)
     {
+
         int state[4];
         state[0] = (data[i+3]&0x08)?true:false;
         state[1] = (data[i+3]&0x10)?true:false;
@@ -532,17 +537,23 @@ void correlate (unsigned char * data, int length, __int64 *stats)
                 stats[15] += (state[1]&state[2]&state[3])?1:0; //states 0,1,2&3
         }
          
-        if (state[1])
-        {        
+		if (flag1 = true)
+		{
                  stats[2] += 1;//state 1
                  
                  stats[8] += (state[2])?1:0; //state 1&2
                  stats[9] += (state[3])?1:0; //state 1&3
         
-                 stats[14] += (state[2]&state[3])?1:0;  //state 1&2&3              
+                 stats[14] += (state[2]&state[3])?1:0;  //state 1&2&3
+				               
         }
+		if (state[1])
+        {        
+				 flag1 = true;
+		}
         stats[10] += (state[2]&state[3])?1:0; //state 2&3
     }
+
     return;             
 }
 
