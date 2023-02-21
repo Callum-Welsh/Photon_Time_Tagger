@@ -503,8 +503,8 @@ void correlate (unsigned char * data, int length, __int64 *stats)
     int i;
     int j;
     int dlength = length%4;
-    int buffLen{1}; // Change this number to the number of delay frames you want!
-    int buffer[buffLen];
+    int buffLen=1; // Change this number to the number of delay frames you want!
+    int buffer[1];
     buffer[buffLen-1] = false;
     for (i=0; i<length; i+=4)
     {
