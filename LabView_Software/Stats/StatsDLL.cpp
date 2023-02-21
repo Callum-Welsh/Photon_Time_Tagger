@@ -501,26 +501,26 @@ stats structure: number of occurences of these events:
 void correlate (unsigned char * data, int length, __int64 *stats)
 {
     int i;
-	int j;
+    int j;
     int dlength = length%4;
-	int buffLen{1}; // Change this number to the number of delay frames you want!
-	int buffer[buffLen];
-	buffer[buffLen-1] = false;
+    int buffLen{1}; // Change this number to the number of delay frames you want!
+    int buffer[buffLen];
+    buffer[buffLen-1] = false;
     for (i=0; i<length; i+=4)
     {
         int state[4];
         state[0] = (data[i+3]&0x08)?true:false;
-		state[1] = buffer[buffLen - 1]
-		for (j = 0; j < buffLen-1; j+=1)
-		{
-			buffer[j+1] = buffer[j]
-		}
-		buffer[0] = (data[i+3]&0x10)?true:false;
+	state[1] = buffer[buffLen - 1];
+	for (j = 0; j < buffLen-1; j+=1)
+	{
+		buffer[j+1] = buffer[j];
+	}
+	buffer[0] = (data[i+3]&0x10)?true:false;
         state[2] = (data[i+3]&0x20)?true:false;
         state[3] = (data[i+3]&0x40)?true:false;
 
 		//# of starts
-		stats[0]+= data[i+3]&0x80?1:0;
+	stats[0]+= data[i+3]&0x80?1:0;
 
         stats[3] += (int)state[2];//state 2
         stats[4] += (int)state[3];//state 3
